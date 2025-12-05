@@ -4,5 +4,9 @@
   "version": "1.0.0",
   "author": {
     "name": "Nico Bailon"
-  }
+  },
+  "repository": "https://github.com/nicobailon/mcp2cli-plugin",
+  "homepage": "https://github.com/nicobailon/mcp2cli-plugin",
+  "license": "MIT",
+  "keywords": ["mcp", "cli", "tools", "agents", "mcporter", "wrapper"]
 }
