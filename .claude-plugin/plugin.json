@@ -1,0 +1,8 @@
+{
+  "name": "mcp2cli",
+  "description": "Convert MCP servers into standalone CLI tools for AI agents. Auto-detects npm/PyPI packages, generates Node.js wrappers, and registers them to CLAUDE.md.",
+  "version": "1.0.0",
+  "author": {
+    "name": "Nico Bailon"
+  }
+}
