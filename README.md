@@ -106,7 +106,7 @@ Tools are generated to `~/agent-tools/<server-name>/`:
 └── chrome-click.js
 ```
 
-Each script is symlinked to `~/.local/bin` (without the `.js` extension), so Claude can invoke by name—no full paths needed:
+Each script is symlinked to `~/agent-tools/bin` (or `~/.local/bin` as fallback) without the `.js` extension, so Claude can invoke by name—no full paths needed:
 ```bash
 # Just the symlink name works
 chrome-snapshot --help
@@ -124,7 +124,7 @@ chrome-navigate --url "https://example.com"
 |-------|-----|
 | mcporter not found | Ensure `npx mcporter` works |
 | Discovery fails | Server may be Python—mcporter tries uvx automatically |
-| Tools not in PATH | Add `~/.local/bin` to your PATH |
+| Tools not in PATH | Add `~/agent-tools/bin` or `~/.local/bin` to your PATH |
 
 ## Credits
 

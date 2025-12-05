@@ -153,12 +153,18 @@ Make executable and create symlinks for direct invocation:
 ```bash
 chmod +x ~/agent-tools/<server-name>/*.js
 
-# Create symlinks in ~/.local/bin (ensure it's in PATH)
-mkdir -p ~/.local/bin
+# Use ~/agent-tools/bin if ~/agent-tools/ exists, otherwise ~/.local/bin
+if [ -d ~/agent-tools ]; then
+  BIN_DIR=~/agent-tools/bin
+else
+  BIN_DIR=~/.local/bin
+fi
+mkdir -p "$BIN_DIR"
 for f in ~/agent-tools/<server-name>/*.js; do
-  ln -sf "$f" ~/.local/bin/$(basename "$f" .js)
+  ln -sf "$f" "$BIN_DIR/$(basename "$f" .js)"
 done
 ```
+Note: Ensure the bin directory is in the user's PATH.
 
 ## Step 7: Register to CLAUDE.md
 

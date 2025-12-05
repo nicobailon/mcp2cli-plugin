@@ -57,11 +57,17 @@ npx mcporter list --stdio "uvx <pkg>" --name <server> --schema --json
 - package.json (type: module)
 - README.md
 - .js wrappers (chmod +x)
-- Create symlinks in ~/.local/bin for direct invocation:
+- Create symlinks for direct invocation:
   ```bash
-  mkdir -p ~/.local/bin
+  # Use ~/agent-tools/bin if ~/agent-tools/ exists, otherwise ~/.local/bin
+  if [ -d ~/agent-tools ]; then
+    BIN_DIR=~/agent-tools/bin
+  else
+    BIN_DIR=~/.local/bin
+  fi
+  mkdir -p "$BIN_DIR"
   for f in ~/agent-tools/<server>/*.js; do
-    ln -sf "$f" ~/.local/bin/$(basename "$f" .js)
+    ln -sf "$f" "$BIN_DIR/$(basename "$f" .js)"
   done
   ```
 
