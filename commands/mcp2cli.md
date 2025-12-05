@@ -61,7 +61,7 @@ npx mcporter list --stdio "uvx <pkg>" --name <server> --schema --json
   ```bash
   mkdir -p ~/.local/bin
   for f in ~/agent-tools/<server>/*.js; do
-    ln -sf "$f" ~/.local/bin/$(basename "$f")
+    ln -sf "$f" ~/.local/bin/$(basename "$f" .js)
   done
   ```
 
@@ -72,8 +72,8 @@ npx mcporter list --stdio "uvx <pkg>" --name <server> --schema --json
 
 Usage:
 ```bash
-<server>-<tool1>.js --help
-<server>-<tool2>.js --param "value"
+<server>-<tool1> --help
+<server>-<tool2> --param "value"
 ```
 
 Full docs: `~/agent-tools/<server>/README.md`

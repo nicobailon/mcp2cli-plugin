@@ -146,7 +146,7 @@ mkdir -p ~/agent-tools/<server-name>
 
 Create:
 1. **package.json** - with "type": "module"
-2. **README.md** - document all tools with usage examples
+2. **README.md** - document all tools with usage examples (use symlink names without .js extension)
 3. **Wrapper .js scripts** - one per tool group
 
 Make executable and create symlinks for direct invocation:
@@ -156,7 +156,7 @@ chmod +x ~/agent-tools/<server-name>/*.js
 # Create symlinks in ~/.local/bin (ensure it's in PATH)
 mkdir -p ~/.local/bin
 for f in ~/agent-tools/<server-name>/*.js; do
-  ln -sf "$f" ~/.local/bin/$(basename "$f")
+  ln -sf "$f" ~/.local/bin/$(basename "$f" .js)
 done
 ```
 
@@ -170,9 +170,9 @@ Append to ~/.claude/CLAUDE.md using the fetched description:
 
 Usage:
 ```bash
-<server>-<tool1>.js --help
-<server>-<tool2>.js --param "value"
-<server>-<tool3>.js --url "https://example.com"
+<server>-<tool1> --help
+<server>-<tool2> --param "value"
+<server>-<tool3> --url "https://example.com"
 ```
 
 Full docs: `~/agent-tools/<server-name>/README.md`

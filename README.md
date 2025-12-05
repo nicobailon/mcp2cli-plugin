@@ -23,8 +23,8 @@
 
 3. Use the generated tools:
    ```bash
-   chrome-snapshot.js --help
-   chrome-snapshot.js --selector "#main"
+   chrome-snapshot --help
+   chrome-snapshot --selector "#main"
    ```
 
 ## The Problem
@@ -61,7 +61,7 @@ Convert MCP tools to simple, self-documenting CLI scripts. Claude gets the same 
 npx mcporter call --stdio "npx -y chrome-devtools-mcp" chrome-devtools.take_snapshot
 
 # After: Simple script Claude uses reliably
-chrome-snapshot.js --selector "#main"
+chrome-snapshot --selector "#main"
 ```
 
 *For the rationale behind this approach, see [What if you don't need MCP?](https://mariozechner.at/posts/2025-11-02-what-if-you-dont-need-mcp/) by Mario Zechner.*
@@ -106,11 +106,11 @@ Tools are generated to `~/agent-tools/<server-name>/`:
 └── chrome-click.js
 ```
 
-Each script is symlinked to `~/.local/bin`, so Claude can invoke by name—no full paths needed:
+Each script is symlinked to `~/.local/bin` (without the `.js` extension), so Claude can invoke by name—no full paths needed:
 ```bash
-# Just the script name works (symlinked)
-chrome-snapshot.js --help
-chrome-navigate.js --url "https://example.com"
+# Just the symlink name works
+chrome-snapshot --help
+chrome-navigate --url "https://example.com"
 ```
 
 ## Requirements
