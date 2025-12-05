@@ -52,6 +52,7 @@ Convert MCP tools to simple, self-documenting CLI scripts. Claude gets the same 
 | 100+ chars, agents fumble | ~50 chars, reliable |
 | No `--help` | Full `--help` with examples |
 | Abstract entry point | One tool = one script |
+| Requires full path | Symlinked for direct invocation |
 | Not proactively used | Claude uses reliably |
 
 ```bash
@@ -104,8 +105,9 @@ Tools are generated to `~/agent-tools/<server-name>/`:
 └── chrome-click.js
 ```
 
-Symlinks in `~/.local/bin` allow direct invocation:
+Each script is symlinked to `~/.local/bin`, so Claude can invoke by name—no full paths needed:
 ```bash
+# Just the script name works (symlinked)
 chrome-snapshot.js --help
 chrome-navigate.js --url "https://example.com"
 ```
