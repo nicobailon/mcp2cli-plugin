@@ -46,6 +46,7 @@ Convert MCP tools to simple, self-documenting CLI scripts. Claude gets the same 
 - Tool schemas don't bloat context (only loaded when `--help` is called)
 - Commands are intuitive and short
 - Self-documenting via `--help`
+- **Schema-aligned**: Script names, parameters, and docs mirror the original MCP schema—agents get the same structured information, but each MCP tool is converted to a bash-invokable script symlinked for easy access
 
 | mcporter CLI | mcp2cli-generated |
 |--------------|-------------------|
